@@ -1,22 +1,19 @@
 import User from '../model/User.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv'
+dotenv.config()
 
 const signup = async (req, res) => {
     try {
         const { username, email, password } = req.body;
-        console.log(password)
         let user = await User.findOne({ email });
-        // if (user) {
-        //     return res.status(400).json({ success: false, message: 'User already exists' });
-        // }
+        if (user) {
+            return res.status(400).json({ success: false, message: 'User already exists' });
+        }
         const salt = await bcrypt.genSalt(10);
-        console.log("Hiii")
-        const hashedPassword = await bcrypt.hash(password, 10)
-        .catch(err=>{
-            // console.log(err)
-        })
-        user = new User({ username, email, password: "fyfyjyvjvjvjhfyuy" });
+        const hashedPassword = await bcrypt.hash(password, salt);
+        user = new User({ username, email, password: hashedPassword });
         await user.save();
         res.status(201).json({ success: true, message: 'User created successfully' });
     } catch (error) {
