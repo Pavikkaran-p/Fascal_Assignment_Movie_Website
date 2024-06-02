@@ -17,6 +17,7 @@ const Login = () => {
         .then(result => {
             if (result.data.success) {
                 toast.success("Logged in successfully");
+                localStorage.setItem('token',result.data.token);
                 setTimeout(() => {
                     navigate('/');
                 }, 2000);

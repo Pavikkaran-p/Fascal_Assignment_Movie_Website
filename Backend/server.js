@@ -5,7 +5,7 @@ import dotenv from 'dotenv'
 import authRoutes from './routes/authRoutes.js';
 import movieListRoutes from './routes/movieListRoutes.js';
 import movieRoute from './routes/movieRoute.js'
-import { movieBySearch } from './controllers/movieController.js';
+import { movieById } from './controllers/movieController.js';
 dotenv.config()
 
 const app = express();
@@ -16,8 +16,9 @@ app.use(cors());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/lists', movieListRoutes);
-app.use('api/m',movieRoute);
-app.get('/movie',movieBySearch);
+app.use('/api/m',movieRoute);
+app.get('/movie',movieById);
+
 app.get('/',(req,res)=>{
     console.log("Working good")
     res.sendStatus(200)

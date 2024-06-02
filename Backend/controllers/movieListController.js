@@ -4,6 +4,7 @@ import generateUniqueLink from '../utils/generateLink.js';
 const createList = async (req, res) => {
     try {
         const { name, isPublic } = req.body;
+        console.log(req.body)
         const link = generateUniqueLink();
         const newList = new MovieList({ user: req.user.id, name, isPublic, link });
         await newList.save();
@@ -17,10 +18,12 @@ const createList = async (req, res) => {
 const updateList = async (req, res) => {
     try {
         const { name, isPublic, movies } = req.body;
-        const list = await MovieList.findById(req.params.id);
+        const list = await MovieList.find({uuid:req.params.id});
+        console.log(list+ "Update list")
         if (!list) {
             return res.status(404).json({ message: 'List not found' });
         }
+        console.log(list)
         if (list.user.toString() !== req.user.id) {
             return res.status(401).json({ message: 'Not authorized' });
         }
@@ -59,6 +62,19 @@ const getPublicList = async (req, res) => {
         res.status(500).json({ message: 'Server Error' });
     }
 };
+const getUserList = async (req, res) => {
+    try {
+        console.log(req.params)
+        const list = await MovieList.findOne({ uuid: req.params.link });
+        if (!list) {
+            return res.status(401).json({ message: 'List not found' });
+        }
+        res.status(200).json({ list });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json({ message: 'Server Error' });
+    }
+};
 
 const deleteMovieFromList = async (req, res) => {
     try {
@@ -78,4 +94,4 @@ const deleteMovieFromList = async (req, res) => {
     }
 };
 
-export { createList, updateList, getUserLists, getPublicList, deleteMovieFromList };
+export { createList, updateList, getUserLists, getPublicList, deleteMovieFromList ,getUserList};

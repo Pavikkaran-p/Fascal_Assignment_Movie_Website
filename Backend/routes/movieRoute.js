@@ -1,8 +1,8 @@
 import express from "express";
-import { movieBySearch } from "../controllers/movieController.js";
+import { movieById } from "../controllers/movieController.js";
 
 const router=express.Router();
 
-router.get('/movie',movieBySearch);
+router.get('/movie',movieById);
 
 export default router;

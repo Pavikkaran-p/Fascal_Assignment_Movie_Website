@@ -4,13 +4,15 @@ import {
     updateList,
     getUserLists,
     getPublicList,
-    deleteMovieFromList
+    deleteMovieFromList,
+    getUserList
 } from '../controllers/movieListController.js';
 import authenticateUser from '../middleware/authenticateUser.js';
 
 const router = express.Router();
 
-router.post('/', authenticateUser, createList);
+router.post('/createlist', authenticateUser, createList);
+router.get('/user/:link', getUserList);
 router.put('/:id', authenticateUser, updateList);
 router.get('/', authenticateUser, getUserLists);
 router.get('/:link', getPublicList);
