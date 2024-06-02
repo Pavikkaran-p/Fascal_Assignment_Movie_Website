@@ -8,7 +8,7 @@
     "build-client": "cd Frontend && npm run build",
     "start-client": "cd Frontend && npm run dev",
     "install-server": "cd Backend && npm install",
-    "start-server": "cd Backend && node index.js"
+    "start-server": "cd Backend && node server.js"
   },
   "keywords": [],
   "author": "",
