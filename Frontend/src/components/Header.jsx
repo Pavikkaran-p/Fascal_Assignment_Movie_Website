@@ -28,7 +28,7 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         <Link to={'/'}><h1 className="text-xl font-semibold">The Movie List</h1></Link>
         <div className="flex items-center">
-          <form onSubmit={handleSearch} className="mr-4">
+          <form  className="mr-4">
             <input
               type="text"
               placeholder="Search for movies..."
@@ -36,9 +36,11 @@ const Header = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
+            <Link to={`/s/${searchTerm}`}>
             <button type="submit" className="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
               Search
             </button>
+            </Link>
           </form>
           {/* <Link to="/login" className="text-white hover:text-gray-300 mr-4">Login</Link>
           <Link to="/signup" className="text-white hover:text-gray-300">Signup</Link> */}
