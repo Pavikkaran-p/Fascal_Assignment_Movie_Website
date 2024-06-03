@@ -15,7 +15,7 @@ const SearchResult = () => {
       setError(null);
       try {
         const apiKey = import.meta.env.VITE_OMDB_API_KEY;
-        const response = await axios.get(`http://www.omdbapi.com/?s=${searchTerm}&apikey=${apiKey}`);
+        const response = await axios.get(`https://www.omdbapi.com/?s=${searchTerm}&apikey=${apiKey}`);
         setMovies(response.data.Search || []);
       } catch (error) {
         setError('Failed to fetch data');

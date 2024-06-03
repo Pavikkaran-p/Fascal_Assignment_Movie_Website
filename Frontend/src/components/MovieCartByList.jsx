@@ -13,7 +13,7 @@ const MovieCartByList = () => {
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const response = await axios.get(`http://www.omdbapi.com/?i=${imdbId}&apikey=c6412e69`);
+        const response = await axios.get(`https://www.omdbapi.com/?i=${imdbId}&apikey=c6412e69`);
         console.log("Hiiiiii")
         console.log(response)
         setMovieData(response.data);
