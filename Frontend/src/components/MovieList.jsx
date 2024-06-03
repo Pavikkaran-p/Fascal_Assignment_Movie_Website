@@ -15,7 +15,7 @@ const MovieList = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:3001/api/lists/user/${listId}`);
+        const response = await axios.get(`https://fascal-assignment-movie-website.onrender.com/api/lists/user/${listId}`);
         console.log(response.data.list.movies)
         // console.log(response)
         setMovies(response.data.list.movies);

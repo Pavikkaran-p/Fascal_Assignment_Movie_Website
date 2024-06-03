@@ -17,7 +17,7 @@ const Profile = () => {
             Authorization: `Bearer ${token}`,
           },
         };
-        const response = await axios.get('http://127.0.0.1:3001/api/lists/', config);
+        const response = await axios.get('https://fascal-assignment-movie-website.onrender.com/api/lists/', config);
         setMovieLists(response.data.lists);
         setLoading(false);
       } catch (error) {

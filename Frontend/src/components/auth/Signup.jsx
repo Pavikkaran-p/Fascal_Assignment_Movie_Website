@@ -14,7 +14,7 @@ const Signup = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         
-        axios.post('http://127.0.0.1:3001/api/auth/signup', { name, email, password })
+        axios.post('https://fascal-assignment-movie-website.onrender.com/api/auth/signup', { name, email, password })
         .then(result => {
             if (result.data === "Already registered") {
                 alert("E-mail already registered! Please Login to proceed.");

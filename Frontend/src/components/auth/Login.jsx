@@ -13,7 +13,7 @@ const Login = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         
-        axios.post('http://127.0.0.1:3001/api/auth/login', { email, password })
+        axios.post('https://fascal-assignment-movie-website.onrender.com/api/auth/login', { email, password })
         .then(result => {
             if (result.data.success) {
                 toast.success("Logged in successfully");

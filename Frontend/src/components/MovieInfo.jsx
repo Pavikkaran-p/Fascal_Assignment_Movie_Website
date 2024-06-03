@@ -23,7 +23,7 @@ const MovieInfo = () => {
           },
         };
 
-        const response = await axios.get(`http://127.0.0.1:3001/movie?imdbID=${imdbID}`, config);
+        const response = await axios.get(`https://fascal-assignment-movie-website.onrender.com/movie?imdbID=${imdbID}`, config);
         setMovieData(response.data);
         setLoading(false);
       } catch (error) {
@@ -42,7 +42,7 @@ const MovieInfo = () => {
           },
         };
 
-        const response = await axios.get('http://127.0.0.1:3001/api/lists', config);
+        const response = await axios.get('https://fascal-assignment-movie-website.onrender.com/api/lists', config);
         setMovieLists(response.data.lists);
       } catch (error) {
         console.error(error.message);
@@ -63,7 +63,7 @@ const MovieInfo = () => {
         },
       };
 
-      await axios.put(`http://127.0.0.1:3001/api/lists/${listId}`, {name:newListName ,isPublic:isPublic , movies: [imdbID] }, config);
+      await axios.put(`https://fascal-assignment-movie-website.onrender.com/api/lists/${listId}`, {name:newListName ,isPublic:isPublic , movies: [imdbID] }, config);
       setShowModal(false);
     } catch (error) {
       console.error(error.message);
@@ -80,7 +80,7 @@ const MovieInfo = () => {
         },
       };
 
-      const response = await axios.post('http://127.0.0.1:3001/api/lists/createlist', { name: newListName,isPublic:isPublic }, config);
+      const response = await axios.post('https://fascal-assignment-movie-website.onrender.com/api/lists/createlist', { name: newListName,isPublic:isPublic }, config);
       if(response){
         
       }
