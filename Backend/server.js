@@ -16,8 +16,8 @@ app.use(cors());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/lists', movieListRoutes);
-app.use('/api/m',movieRoute);
-app.get('/movie',movieById);
+app.use('/api/movie',movieRoute);
+// app.get('/movie',movieById);
 
 app.get('/',(req,res)=>{
     console.log("Working good")

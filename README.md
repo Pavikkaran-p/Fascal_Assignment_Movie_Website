@@ -1,6 +1,6 @@
-# The Movie List
+# The Movieweb
 
-The Movie List is a web application built using the MERN stack (MongoDB, Express.js, React, Node.js). It allows users to search for movies using the OMDB API, create personal movie lists, and manage them.
+The Movieweb is a web application built using the MERN stack (MongoDB, Express.js, React, Node.js). It allows users to search for movies using the OMDB API, create personal movie lists, and manage them.
 
 ## Features
 
@@ -13,7 +13,7 @@ The Movie List is a web application built using the MERN stack (MongoDB, Express
 ### Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/themovielist.git
+git clone https://github.com/Pavikkaran-p/Movie-web
 cd themovielist
 
 ```
